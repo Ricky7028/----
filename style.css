@@ -1,0 +1,257 @@
+/* 全局變數設定：暗色神祕風格 */
+:root {
+    --bg-color: #0b071a;
+    --text-main: #f0ecf9;
+    --text-muted: #a89bc4;
+    --accent-gold: #ffd700;
+    --card-bg: rgba(25, 15, 45, 0.7);
+    --border-light: rgba(255, 215, 0, 0.3);
+    --glow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PingFang TC', '微軟正黑體', 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* 建立星空感漸層背景 */
+    background-image: radial-gradient(circle at 50% 50%, #1e123a 0%, #0b071a 100%);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--accent-gold);
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* 區塊顯示控制 */
+.section {
+    display: none;
+    animation: fadeIn 0.6s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 互動佔卜元件：水晶球 */
+.crystal-ball {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    /* 水晶球質感與發光 */
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(120, 80, 220, 0.5), rgba(0, 0, 0, 0.8));
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 35px rgba(120, 80, 220, 0.6);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.crystal-ball:hover {
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.7);
+    transform: scale(1.08);
+}
+
+.crystal-ball:active {
+    transform: scale(0.95);
+}
+
+.crystal-ball .emoji {
+    font-size: 4.5rem;
+    pointer-events: none; /* 防止點擊到 emoji, 主要點擊到球體 */
+}
+
+.instruction {
+    color: var(--accent-gold);
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+}
+
+/* 載入動畫 */
+.mystic-spinner {
+    width: 70px;
+    height: 70px;
+    border: 4px solid var(--border-light);
+    border-top: 4px solid var(--accent-gold);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    animation: pulse 1.5s infinite;
+}
+
+/* 結果呈現區 */
+.result-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--glow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#fortune-title {
+    font-size: 2.8rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.desc {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.detail-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-gold);
+    transition: transform 0.2s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-3px);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.detail-item .icon {
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.detail-item h3 {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    vertical-align: super;
+}
+
+.detail-item p {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.quote-box {
+    border-top: 1px dashed var(--border-light);
+    padding-top: 1.8rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+}
+
+/* 按鈕樣式 */
+.btn {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--accent-gold);
+    border: 2px solid var(--accent-gold);
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+    backdrop-filter: blur(5px);
+}
+
+.btn:hover {
+    background: var(--accent-gold);
+    color: var(--bg-color);
+    box-shadow: var(--glow);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* 關鍵影格動畫設定 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; text-shadow: 0 0 15px var(--accent-gold); }
+    100% { opacity: 0.6; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* RWD 響應式佈局：手機版適配 */
+@media (max-width: 500px) {
+    .details-grid {
+        grid-template-columns: 1fr; /* 切換為單欄 */
+        gap: 1rem;
+    }
+    .container {
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .result-card {
+        padding: 1.5rem 1rem;
+    }
+}

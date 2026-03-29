@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ 每日神秘運勢占卜 ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ 每日神秘運勢占卜 ✨</h1>
+            <p>集中精神，點擊下方水晶球，揭曉你今日的命運軌跡...</p>
+        </header>
+
+        <main>
+            <!-- 初始畫面 -->
+            <div id="start-section" class="section active">
+                <div class="crystal-ball" id="draw-btn">
+                    <span class="emoji">🔮</span>
+                </div>
+                <p class="instruction">點擊水晶球開始占卜</p>
+            </div>
+
+            <!-- 抽籤動畫中 -->
+            <div id="loading-section" class="section hidden">
+                <div class="mystic-spinner"></div>
+                <p class="loading-text">正在解讀星象與命理...</p>
+            </div>
+
+            <!-- 呈現結果 -->
+            <div id="result-section" class="section hidden">
+                <div class="result-card">
+                    <h2 id="fortune-title">運勢標題</h2>
+                    <p id="fortune-desc" class="desc">整體運勢說明文字...</p>
+                    
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="icon">💼</span>
+                            <h3>【 工作 】</h3>
+                            <p id="fortune-work">-</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📚</span>
+                            <h3>【 學業 】</h3>
+                            <p id="fortune-study">-</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">❤️</span>
+                            <h3>【 愛情 】</h3>
+                            <p id="fortune-love">-</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">💰</span>
+                            <h3>【 金錢 】</h3>
+                            <p id="fortune-money">-</p>
+                        </div>
+                    </div>
+
+                    <div class="quote-box">
+                        <p id="fortune-quote">「結語金句」</p>
+                    </div>
+                </div>
+
+                <button id="retry-btn" class="btn">再次呼喚命運 (重抽)</button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
